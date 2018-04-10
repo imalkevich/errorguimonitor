@@ -1,0 +1,1498 @@
+
+
+
+
+
+
+
+
+
+<html>
+    <head>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    
+    
+    
+    
+    
+    <script type="text/javascript" language="JavaScript">
+    var gmtOffsetMinutes = -300;
+    </script>
+    <script type="text/javascript" src="js/eg.js"></script>
+    <script type="text/javascript" src="js/ejschart/EJSChart.js"></script>
+    
+    <link href="css/blue/style.css" rel="stylesheet">
+    <link href="css/cobalt.css" rel="stylesheet">
+    
+    <!--[if IE]>
+        <link href="css/ie_cobalt.css" rel="stylesheet">
+    <![endif]-->
+    
+    <link href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+    
+    <script type="text/javascript" language="javascript" src="js/datetimepicker.js"></script>
+      <script language="JavaScript">
+            if (document.images)
+            {
+            calimg = new Image(16,16); 
+            calimg.src="images/datePicker/cal.gif"; 
+            }
+    </script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="SHORTCUT ICON" href="images/favicon.ico"/>
+      <script type="text/javascript">
+      $().ready(function() {
+       $('#add').click(function() {
+        return !$('#select1 option:selected').remove().appendTo('#select2');
+       });
+       $('#remove').click(function() {
+        return !$('#select2 option:selected').remove().appendTo('#select1');
+       });
+      });
+     </script>
+    <style type="text/css">
+      .multiselect {
+       width: 150px;
+       height: 100px;
+      }
+     </style>
+     
+    
+    <script type="text/javascript" src="js/jquery/jquery.highlight-3.yui.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.metadata.js"></script> 
+    <script type="text/javascript" src="js/jquery/jquery.cookie.js"></script> 
+    <script type="text/javascript">	 
+    $(document).ready(function() { 
+        if('554'>0){
+            $("table").tablesorter({widgets: ['zebra'], cancelSelection: false, textExtraction: 'complex'}); 
+            }  
+    
+        if ($.cookie('showCharts') == "no") {
+            $('#slickbox').hide();
+            $('#showChart').show();
+            $('#hideChart').hide();
+        } else {
+            $('#slickbox').show();
+            $('#hideChart').show();
+            $('#showChart').hide();
+        }
+    
+        $('a#slick-show').click(function() {
+          $('#slickbox').show('slow');
+          $('#hideChart').show();
+          $('#showChart').hide();
+          $.cookie("showCharts", "yes", { expires: 180 });
+          return false;
+        });
+    
+        $('a#slick-hide').click(function() {
+          $('#slickbox').hide('fast');
+          $('#hideChart').hide();
+          $('#showChart').show();
+          $.cookie("showCharts", "no", { expires: 180 });
+          return false;
+        });
+        
+    });	
+    </script>
+    
+    <title>ErrorGUINext</title>
+    </head>
+    <body>
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+        
+    
+    <div class="titleBoxNoFont">
+          <a href="index.jsp" title="Error GUI">
+        <span style="font-family:calibri, arial, helvetica, sans-serif; font-size:26pt; color:#0047AB; font-weight:bold;" >Error</span>
+        <span style="font-family:calibri, arial, helvetica, sans-serif; font-size:26pt; color:#FF8425; font-weight:bold;" >GUI</span>
+       &nbsp;
+       <span class="bodytextCobaltGrey">NEXT</span>
+       &nbsp;
+       <span class="bodytextCobaltBlue">QED</span>
+       </a>
+       <img src="images/tr_logo_thelink.jpg" width="250" height="35" border="0" class="thomsonLogo" align="top">
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+        var djConfig = {
+        isDebug:false, parseOnLoad:true
+        };
+    </script>
+    <script type="text/javascript" src="js/dojo.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    var setNameSpaceTip = false;
+    var setBusinessUnitTip = false;
+    var setProductTip = false;
+    var setProductViewTip = false;
+    var setSiteTip = false;
+    var setCategoryTip = false;
+    var setSubCategoryTip =false;
+    var setInstGrpTip =false;
+    var setMachineTip =false;
+    var setInstanceNameTip =false;
+    var setAppNameTip =false;
+    var setAppBuildNumTip =false;
+    var setKeyTip =false;
+    var setApiTip =false;
+    var setIsCustomerFacingTip =false;
+    
+    function hideAllDropDown(){
+       var nameSpace = document.getElementById('menuNameSpaceDrop');
+       var businessUnit = document.getElementById('menuBusinessUnitDrop');
+       var product = document.getElementById('menuProductDrop');
+       var productView = document.getElementById('menuProductViewDrop');
+       var category = document.getElementById('menuCategoryDrop');
+        var subCategory = document.getElementById('menuSubCategoryDrop');
+        var instanceGroup = document.getElementById('menuInstanceGroupDrop');
+        var machine = document.getElementById('menuMachineDrop');
+        var appName = document.getElementById('menuAppNameDrop');
+        var instanceName = document.getElementById('menuInstanceNameDrop');
+        var appBuildNum = document.getElementById('menuAppBuilderNumberDrop');
+        var key = document.getElementById('menuKeyDrop');
+        var api = document.getElementById('menuApiDrop');
+        
+        var custFacing = document.getElementById('menuIsCustomerFacingDrop');
+       if(isdefined(nameSpace) == true)
+          document.getElementById('menuNameSpaceDrop').style.display = 'none';
+       if(isdefined(businessUnit) == true)
+          document.getElementById('menuBusinessUnitDrop').style.display = 'none';
+       if(isdefined(product) == true)
+          document.getElementById('menuProductDrop').style.display = 'none';
+       if(isdefined(productView) == true)
+          document.getElementById('menuProductViewDrop').style.display = 'none';
+       if(isdefined(category) == true)
+          document.getElementById('menuCategoryDrop').style.display = 'none';
+        if(isdefined(subCategory) == true)
+            document.getElementById('menuSubCategoryDrop').style.display = 'none';
+        if(isdefined(machine)== true)
+            document.getElementById('menuMachineDrop').style.display = 'none';
+        if(isdefined(api)== true)
+            document.getElementById('menuApiDrop').style.display = 'none';
+        if(isdefined(appName) == true)
+            document.getElementById('menuAppNameDrop').style.display = 'none';
+        if(isdefined(instanceName) == true)
+            document.getElementById('menuInstanceNameDrop').style.display = 'none';
+        if(isdefined(appBuildNum) == true)
+            document.getElementById('menuAppBuilderNumberDrop').style.display = 'none';
+        if(isdefined(instanceGroup) == true)
+            document.getElementById('menuInstanceGroupDrop').style.display = 'none';
+        if(isdefined(key) == true)
+            document.getElementById('menuKeyDrop').style.display = 'none';
+        if(isdefined(custFacing) == true)
+            document.getElementById('menuIsCustomerFacingDrop').style.display = 'none';
+        
+    }
+     function isdefined( variable)
+        {
+            return (variable == undefined)?  false: true;
+        }
+    
+    $(document).ready(function() { 
+        
+        $("#menuNameSpace").click(function() {
+            if (!startEndDatesAreValid()) {
+                return false;
+            }
+           if(setNameSpaceTip == true) {
+              $("#menuNameSpaceDrop").hide();
+              setNameSpaceTip = false; 
+           } if(setNameSpaceTip == false){
+               setNameSpaceTip = true;
+                var startTime = document.serverForm.start_time.value;
+                var endTime =  document.serverForm.end_time.value;
+              var site =  document.serverForm.site.value;
+                var a =  document.serverForm.a.value;
+                var b =  document.serverForm.b.value;
+                var c =  document.serverForm.c.value;
+                var d =  document.serverForm.d.value;
+                var e =  document.serverForm.e.value;
+                var f =  document.serverForm.f.value;
+                var g =  document.serverForm.g.value;
+                var h =  document.serverForm.h.value;
+                var i =  document.serverForm.i.value;
+                var j =  document.serverForm.j.value;
+                
+              var z =  document.serverForm.z.value;
+              var y =  document.serverForm.y.value;
+              var x =  document.serverForm.x.value;
+              var v =  document.serverForm.v.value;
+              document.serverForm.viewList.value = 'detail';
+              getSecondarySelect();
+              document.serverForm.param.value = 'z';
+              hideAllDropDown();
+              
+              var url = 'specificMenuData.do?param=z&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&x='+x+'&y='+y+'&z='+z+'&v='+v+'&databaseId=prod';      
+              $.get(url, function(html) {
+                 $("#menuNameSpaceDrop").empty();
+                 $("#menuNameSpaceDrop").append(html);
+                 $("#menuNameSpaceDrop").show();
+                 $('#ajaxLoaderz').hide();
+              });
+           }
+        });
+        
+          $("#menuBusinessUnit").click(function() {
+                if (!startEndDatesAreValid()) {
+                    return false;
+                }
+              if(setBusinessUnitTip == true) {
+                 $("#menuBusinessUnitDrop").hide();
+                 setBusinessUnitTip = false; 
+              } if(setBusinessUnitTip == false){
+                    setBusinessUnitTip = true;
+                    var startTime = document.serverForm.start_time.value;
+                    var endTime =  document.serverForm.end_time.value;
+                    var site =  document.serverForm.site.value;
+                    var a =  document.serverForm.a.value;
+                    var b =  document.serverForm.b.value;
+                    var c =  document.serverForm.c.value;
+                    var d =  document.serverForm.d.value;
+                    var e =  document.serverForm.e.value;
+                    var f =  document.serverForm.f.value;
+                    var g =  document.serverForm.g.value;
+                    var h =  document.serverForm.h.value;
+                    var i =  document.serverForm.i.value;
+                    var j =  document.serverForm.j.value;
+                    
+                    var z =  document.serverForm.z.value;
+                    var y =  document.serverForm.y.value;
+                    var x =  document.serverForm.x.value;
+                    var v =  document.serverForm.v.value;
+                    document.serverForm.viewList.value = 'detail';
+                    getSecondarySelect();
+                    document.serverForm.param.value = 'y';
+                    hideAllDropDown();
+                 
+                 var url = 'specificMenuData.do?param=y&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&x='+x+'&y='+y+'&z='+z+'&v='+v+'&databaseId=prod';      
+                 $.get(url, function(html) {
+                    $("#menuBusinessUnitDrop").empty();
+                    $("#menuBusinessUnitDrop").append(html);
+                    $("#menuBusinessUnitDrop").show();
+                    $('#ajaxLoadery').hide();
+                 });
+              }
+           });
+          $("#menuProduct").click(function() {
+                if (!startEndDatesAreValid()) {
+                    return false;
+                }
+              if(setNameSpaceTip == true) {
+                 $("#menuProductDrop").hide();
+                 setNameSpaceTip = false; 
+              } if(setNameSpaceTip == false){
+                 setNameSpaceTip = true;
+                  var startTime = document.serverForm.start_time.value;
+                  var endTime =  document.serverForm.end_time.value;
+                  var site =  document.serverForm.site.value;
+                  var a =  document.serverForm.a.value;
+                  var b =  document.serverForm.b.value;
+                  var c =  document.serverForm.c.value;
+                  var d =  document.serverForm.d.value;
+                  var e =  document.serverForm.e.value;
+                  var f =  document.serverForm.f.value;
+                  var g =  document.serverForm.g.value;
+                  var h =  document.serverForm.h.value;
+                  var i =  document.serverForm.i.value;
+                  var j =  document.serverForm.j.value;
+                  
+                 var z =  document.serverForm.z.value;
+                 var y =  document.serverForm.y.value;
+                 var x =  document.serverForm.x.value;
+                 var v =  document.serverForm.v.value;
+                 document.serverForm.viewList.value = 'detail';
+                  getSecondarySelect();
+                 document.serverForm.param.value = 'x';
+                 hideAllDropDown();
+                 
+                 var url = 'specificMenuData.do?param=x&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&x='+x+'&y='+y+'&z='+z+'&v='+v+'&databaseId=prod';
+                 $.get(url, function(html) {
+                    $("#menuProductDrop").empty();
+                    $("#menuProductDrop").append(html);
+                    $("#menuProductDrop").show();
+                    $('#ajaxLoaderx').hide();
+                 });
+              }
+           });
+        
+         $("#menuProductView").click(function() {
+                if (!startEndDatesAreValid()) {
+                    return false;
+                }
+              if(setNameSpaceTip == true) { 
+                 $("#menuProductViewDrop").hide();
+                 setNameSpaceTip = false;  
+              } if(setNameSpaceTip == false){
+                 setNameSpaceTip = true;
+                  var startTime = document.serverForm.start_time.value;
+                  var endTime =  document.serverForm.end_time.value;
+                  var site =  document.serverForm.site.value;
+                  var a =  document.serverForm.a.value;
+                  var b =  document.serverForm.b.value;
+                  var c =  document.serverForm.c.value;
+                  var d =  document.serverForm.d.value;
+                  var e =  document.serverForm.e.value;
+                  var f =  document.serverForm.f.value;
+                  var g =  document.serverForm.g.value;
+                  var h =  document.serverForm.h.value;
+                  var i =  document.serverForm.i.value;
+                  var j =  document.serverForm.j.value;
+                  
+                 var z =  document.serverForm.z.value;
+                 var y =  document.serverForm.y.value;
+                 var x =  document.serverForm.x.value;
+                 var v =  document.serverForm.v.value;
+                 document.serverForm.viewList.value = 'detail';
+                  getSecondarySelect();
+                 document.serverForm.param.value = 'v';
+                 hideAllDropDown();
+                
+                 var url = 'specificMenuData.do?param=v&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&x='+x+'&y='+y+'&z='+z+'&v='+v+'&databaseId=prod';
+                 $.get(url, function(html) {					
+                    $("#menuProductViewDrop").empty();																			
+                    $("#menuProductViewDrop").append(html);
+                    $("#menuProductViewDrop").show();
+                    $('#ajaxLoaderx').hide();
+                 });
+              }
+           });
+           
+        $("#menuCategory").click(function() {
+            if (!startEndDatesAreValid()) {
+                return false;
+            }
+               if(setCategoryTip == true) {
+                  $("#menuCategoryDrop").hide();
+                  setCategoryTip = false; 
+               } if(setCategoryTip == false){
+                  setCategoryTip = true;
+                  var startTime = document.serverForm.start_time.value;
+                  var endTime =  document.serverForm.end_time.value;
+                  var site =  document.serverForm.site.value;
+                  var a =  document.serverForm.a.value;
+                  var b =  document.serverForm.b.value;
+                  var c =  document.serverForm.c.value;
+                  var d =  document.serverForm.d.value;
+                  var e =  document.serverForm.e.value;
+                  var f =  document.serverForm.f.value;
+                  var g =  document.serverForm.g.value;
+                  var h =  document.serverForm.h.value;
+                  var i =  document.serverForm.i.value;
+                  var j =  document.serverForm.j.value;
+    
+                var z =  document.serverForm.z.value;
+                var y =  document.serverForm.y.value;
+                var x =  document.serverForm.x.value;
+                var v =  document.serverForm.v.value;
+                  document.serverForm.viewList.value = 'detail';
+                  getSecondarySelect();
+                  document.serverForm.param.value = 'a';
+                  hideAllDropDown();
+                  
+                  var url = 'specificMenuData.do?param=a&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+                  $.get(url, function(html) {
+                     $("#menuCategoryDrop").empty();
+                     $("#menuCategoryDrop").append(html);
+                     $("#menuCategoryDrop").show();
+                     $('#ajaxLoader1').hide();
+                  });
+               }
+            });
+    
+    $("#menuSubCategory").click(function() {
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if(setSubCategoryTip == true) {
+            $("#menuSubCategoryDrop").hide();
+            setSubCategoryTip = false; 
+        } if(setSubCategoryTip == false) {
+            setSubCategoryTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;	
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'b';
+            hideAllDropDown();
+    
+            var url = 'specificMenuData.do?param=b&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuSubCategoryDrop").empty();
+                $("#menuSubCategoryDrop").append(html);
+                $("#menuSubCategoryDrop").show();
+                $('#ajaxLoader2').hide();
+            });
+        }
+    });
+    
+    $("#menuInstanceGroup").click(function() {
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setInstGrpTip == true) {
+            $("#menuInstanceGroupDrop").hide();
+            setInstGrpTip = false; 
+        } if(setInstGrpTip == false) {
+            setInstGrpTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'c';
+            hideAllDropDown();
+        
+            var url = 'specificMenuData.do?param=c&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuInstanceGroupDrop").empty();
+                $("#menuInstanceGroupDrop").append(html);
+                $("#menuInstanceGroupDrop").show();
+                $('#ajaxLoader3').hide();
+            });
+        }
+    });
+    $("#menuMachine").click(function() {
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setMachineTip == true) {
+            $("#menuMachineDrop").hide();
+            setMachineTip = false; 
+        } if(setMachineTip == false) {
+            setMachineTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'd';
+            hideAllDropDown();
+            
+            var url = 'specificMenuData.do?param=d&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuMachineDrop").empty();
+                $("#menuMachineDrop").append(html);
+                $("#menuMachineDrop").show();
+                $('#ajaxLoader4').hide();
+            });
+        }
+    });
+    $("#menuAppName").click(function() { 
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setAppNameTip == true) {
+            $("#menuAppNameDrop").hide();
+            setAppNameTip = false; 
+        } if(setAppNameTip == false) {
+            setAppNameTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'e';
+            hideAllDropDown();
+        
+            var url = 'specificMenuData.do?param=e&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuAppNameDrop").empty();
+                $("#menuAppNameDrop").append(html);
+                $("#menuAppNameDrop").show();
+                $('#ajaxLoader5').hide();
+            });
+        }
+    });
+    $("#menuInstanceName").click(function() {  
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setInstanceNameTip == true) {
+            $("#menuInstanceNameDrop").hide();
+            setInstanceNameTip = false; 
+        } if(setInstanceNameTip == false) {
+            setInstanceNameTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'f';
+            hideAllDropDown();
+        
+            var url = 'specificMenuData.do?param=f&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuInstanceNameDrop").empty();
+                $("#menuInstanceNameDrop").append(html);
+                $("#menuInstanceNameDrop").show();
+                $('#ajaxLoader6').hide();
+            });
+        }
+    });
+    $("#menuAppBuilderNumber").click(function() {  
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setAppBuildNumTip == true) {
+            $("#menuAppBuilderNumberDrop").hide();   
+            setAppBuildNumTip = false; 
+        } if(setAppBuildNumTip == false) {
+            setAppBuildNumTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'g';
+            hideAllDropDown();
+        
+            var url = 'specificMenuData.do?param=g&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuAppBuilderNumberDrop").empty();
+                $("#menuAppBuilderNumberDrop").append(html);
+                $("#menuAppBuilderNumberDrop").show();
+                $('#ajaxLoader7').hide();
+            });
+        }
+    });
+    $("#menuKey").click(function() {  
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setKeyTip  == true) {
+            $("#menuKeyDrop").hide();
+            setKeyTip = false; 
+        } if(setKeyTip == false) {
+            setKeyTip = true; 
+           var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+            var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'h';
+            hideAllDropDown();
+            
+            var url = 'specificMenuData.do?param=h&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+             $("#menuKeyDrop").empty();
+             $("#menuKeyDrop").append(html);
+               $("#menuKeyDrop").show();
+                $('#ajaxLoader8').hide();
+            });
+        }
+    });
+    $("#menuApi").click(function() {
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setApiTip == true) {
+            $("#menuApiDrop").hide();
+            setApiTip = false; 
+        } if(setApiTip == false) {
+            setApiTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+            var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            var z =  document.serverForm.z.value;
+            var y =  document.serverForm.y.value;
+            var x =  document.serverForm.x.value;
+            var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'j';
+            hideAllDropDown();
+            
+            var url = 'specificMenuData.do?param=j&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+                $("#menuApiDrop").empty();
+                $("#menuApiDrop").append(html);
+                $("#menuApiDrop").show();
+                $('#ajaxLoader10').hide();
+            });
+        }
+    });
+    $("#menuIsCustomerFacing").click(function() {   
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        if (setIsCustomerFacingTip  == true) {
+           $("#menuIsCustomerFacingDrop").hide();
+           setIsCustomerFacingTip = false; 
+        } if(setIsCustomerFacingTip == false) {
+            setIsCustomerFacingTip = true; 
+            var startTime = document.serverForm.start_time.value;
+            var endTime =  document.serverForm.end_time.value;
+           var site =  document.serverForm.site.value;
+            var a =  document.serverForm.a.value;
+            var b =  document.serverForm.b.value;
+            var c =  document.serverForm.c.value;
+            var d =  document.serverForm.d.value;
+            var e =  document.serverForm.e.value;
+            var f =  document.serverForm.f.value;
+            var g =  document.serverForm.g.value;
+            var h =  document.serverForm.h.value;
+            var i =  document.serverForm.i.value;
+            var j =  document.serverForm.j.value;
+            
+          var z =  document.serverForm.z.value;
+          var y =  document.serverForm.y.value;
+          var x =  document.serverForm.x.value;
+          var v =  document.serverForm.v.value;
+            document.serverForm.viewList.value = 'detail';
+            getSecondarySelect();
+            document.serverForm.param.value = 'i';
+            hideAllDropDown();
+        
+            var url = 'specificMenuData.do?param=i&site='+site+'&start_time='+startTime+'&end_time='+endTime+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&databaseId=prod';      
+            $.get(url, function(html) {
+              $("#menuIsCustomerFacingDrop").empty();
+              $("#menuIsCustomerFacingDrop").append(html);
+              $("#menuIsCustomerFacingDrop").show();
+                $('#ajaxLoader9').hide();
+            });
+        }
+    });
+    }); 
+    </script>
+    <SCRIPT LANGUAGE="Javascript">
+    function hideMenu(variable) {
+        if(variable =='a') {
+            document.getElementById('menuCategoryDrop').style.display = 'none';
+        } else if(variable =='b'){
+            document.getElementById('menuSubCategoryDrop').style.display = 'none';
+        } else if(variable =='c') {
+            document.getElementById('menuInstanceGroupDrop').style.display = 'none';
+        } else if(variable =='d'){
+            document.getElementById('menuMachineDrop').style.display = 'none';
+        } else if(variable =='e') {
+            document.getElementById('menuAppNameDrop').style.display = 'none';
+        } else if(variable =='f'){
+            document.getElementById('menuInstanceNameDrop').style.display = 'none';
+        } else if(variable =='g'){
+            document.getElementById('menuAppBuilderNumberDrop').style.display = 'none';
+        } else if(variable =='h'){
+            document.getElementById('menuKeyDrop').style.display = 'none';
+        } else if(variable =='i'){
+          document.getElementById('menuIsCustomerFacingDrop').style.display = 'none';
+          } else if(variable =='j'){
+          document.getElementById('menuApiDrop').style.display = 'none';
+       } else if(variable =='z'){
+          document.getElementById('menuNameSpaceDrop').style.display = 'none';
+       } else if(variable =='y'){
+          document.getElementById('menuBusinessUnitDrop').style.display = 'none';
+       } else if(variable =='x'){
+          document.getElementById('menuProductDrop').style.display = 'none';
+       }else if(variable =='v'){
+          document.getElementById('menuProductViewDrop').style.display = 'none';
+       }
+    } 
+    function submitChildForm(field) {
+        var catagoryElement= '';
+        for (i = 1; i < field.length-2; i++){
+             if(field[i].checked == true) {
+                 catagoryElement +='@';
+                 catagoryElement += field[i].value; 
+             }
+        }
+        if(catagoryElement =='' ||catagoryElement==null){
+            return false;
+        }
+        if(document.serverForm.param.value == 'a'){
+            document.serverForm.a.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'a';
+        } else if(document.serverForm.param.value == 'b'){
+            document.serverForm.b.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'b';
+        } else if(document.serverForm.param.value == 'c'){
+            document.serverForm.c.value = catagoryElement;
+             document.serverForm.qS.value =document.serverForm.qS.value+"@"+'c';
+        } else if(document.serverForm.param.value == 'd'){
+            document.serverForm.d.value = catagoryElement;
+             document.serverForm.qS.value =document.serverForm.qS.value+"@"+'d';
+        } else if(document.serverForm.param.value == 'e'){
+            document.serverForm.e.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'e';
+        } else if(document.serverForm.param.value == 'f'){
+            document.serverForm.f.value = catagoryElement;
+             document.serverForm.qS.value =document.serverForm.qS.value+"@"+'f';
+        } else if(document.serverForm.param.value == 'g'){
+            document.serverForm.g.value = catagoryElement;
+             document.serverForm.qS.value =document.serverForm.qS.value+"@"+'g';
+        } else if(document.serverForm.param.value == 'h'){
+            document.serverForm.h.value = catagoryElement;
+             document.serverForm.qS.value =document.serverForm.qS.value+"@"+'h';
+        } else if(document.serverForm.param.value == 'i'){
+           document.serverForm.i.value = catagoryElement;
+           document.serverForm.qS.value =document.serverForm.qS.value+"@"+'i';
+        } else if(document.serverForm.param.value == 'j'){
+           document.serverForm.j.value = catagoryElement;
+           document.serverForm.qS.value =document.serverForm.qS.value+"@"+'j';	   
+        } else if(document.serverForm.param.value == 'z'){
+           document.serverForm.z.value = catagoryElement;
+           document.serverForm.qS.value =document.serverForm.qS.value+"@"+'z';
+        } else if(document.serverForm.param.value == 'y'){
+            document.serverForm.y.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'y';
+        } else if(document.serverForm.param.value == 'x'){
+            document.serverForm.x.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'x';
+        } else if(document.serverForm.param.value == 'v'){
+            document.serverForm.v.value = catagoryElement;
+            document.serverForm.qS.value =document.serverForm.qS.value+"@"+'v';
+        }  
+         
+        document.serverForm.search.value ='N';
+        document.serverForm.submit();
+    }
+    function clearQuery(filter) {
+        var qS = document.serverForm.qS.value;
+        var clearQuery = false;
+        var newqS = '@';
+        var array = qS.split("@"); 
+        //Clear a query should reset the database call for number of errors.
+       setNameSpaceFlag ='';
+       setBusinessUnitFlag ='';
+       setProductFlag ='';
+       setProductViewFlag ='';
+        setCategoryFlag ='';
+        setSubCategoryFlag ='';
+        setInstGrpFlag ='';
+        setMachineFlag ='';
+        setApiFlag ='';
+        setInstanceNameFlag ='';
+        setAppNameFlag ='';
+        setAppBuildNumFlag ='';
+        setKeyFlag ='';
+        setIsCustomerFacingFlag ='';
+        for(zz=0;zz<array.length;zz++){
+            var element =array[zz];
+             if(element==filter){
+                 clearQuery = true;
+             }  
+             if(clearQuery == true){
+                 if(array[zz] == 'a'){
+                     document.serverForm.a.value = '';
+                 }else if (array[zz] == 'b'){
+                     document.serverForm.b.value = '';
+                 }else if (array[zz] == 'c'){
+                     document.serverForm.c.value = '';
+                 }else if (array[zz] == 'd'){
+                     document.serverForm.d.value = '';
+                 }else if (array[zz] == 'e'){
+                     document.serverForm.e.value = '';
+                 }else if (array[zz] == 'f'){
+                     document.serverForm.f.value = '';
+                 }else if (array[zz] == 'g'){
+                     document.serverForm.g.value = '';
+                 }else if (array[zz] == 'h'){
+                     document.serverForm.h.value = '';
+                 }else if (array[zz] == 'i'){
+                 document.serverForm.i.value = '';
+                 }else if (array[zz] == 'j'){
+                 document.serverForm.j.value = '';
+              }else if (array[zz] == 'z'){
+                  document.serverForm.z.value = '';
+              }else if (array[zz] == 'y'){
+                  document.serverForm.y.value = '';
+              }else if (array[zz] == 'x'){
+                  document.serverForm.x.value = '';
+              }else if (array[zz] == 'v'){
+                  document.serverForm.v.value = '';
+              }
+             } 
+             if(element!=filter && clearQuery == false){
+                 newqS =newqS+array[zz];
+                 newqS = newqS+'@';
+                 document.serverForm.qS.value = newqS;
+             }
+             
+        }
+        document.serverForm.submit();
+    }
+    
+    function getSecondarySelect() {
+        var theSecondList = dojo.byId('theSecondListDiv');
+        var whichList = dojo.byId('viewList').value;
+        var dbValue = 'QED';
+        dojo.xhrGet ({
+            // Location of the HTML content we want to grab
+            url: 'menu.do?environs=' + dbValue + '&theList='  + whichList,
+            handleAs: "text",
+            preventCache: true, 
+                   
+            // Called when the page loaded successfully
+            load: function (data) {
+            theSecondList.innerHTML = data;
+            },
+            // Called if there was an error (such as a 404 response)
+            error: function (data) {
+            console.error (data);
+            }
+        });
+    }
+    
+    function selectAll(field,variable) {
+        var selectAllCheckbox;
+        if(variable =='a') {
+            selectAllCheckbox = document.getElementById('selectAllCategory');
+        } else if(variable =='b'){
+            selectAllCheckbox = document.getElementById('selectAllSubCategory');
+        } else if(variable =='c') {
+            selectAllCheckbox = document.getElementById('selectAllInstanceGroup');
+        } else if(variable =='d'){
+            selectAllCheckbox = document.getElementById('selectAllMachine');
+        } else if(variable =='e') {
+            selectAllCheckbox = document.getElementById('selectAllAppName');
+        } else if(variable =='f'){
+            selectAllCheckbox = document.getElementById('selectAllInstance');
+        } else if(variable =='g'){
+            selectAllCheckbox = document.getElementById('selectAllBuildNumber');
+        } else if(variable =='h'){
+            selectAllCheckbox = document.getElementById('selectAllKey');
+        } else if(variable =='i'){
+            selectAllCheckbox = document.getElementById('selectAllCustomerFacing');
+        } else if(variable =='j'){
+            selectAllCheckbox = document.getElementById('selectAllApi');
+        } else if(variable =='z'){
+            selectAllCheckbox = document.getElementById('selectAllNameSpace');
+        } else if(variable =='y'){
+            selectAllCheckbox = document.getElementById('selectAllBusinessUnit');
+        } else if(variable =='x'){
+            selectAllCheckbox = document.getElementById('selectAllProduct');
+        }else if(variable =='v'){
+            selectAllCheckbox = document.getElementById('selectAllProductView');
+        }
+        if(isdefined(field) && isdefined(selectAllCheckbox)) {
+            for (var i = 1; i < field.length-2; i++){
+                field[i].checked = selectAllCheckbox.checked;
+            }
+            field.blur();
+            field.focus();
+        }
+    } 
+    </SCRIPT>
+    
+    <script type="text/javascript">
+        function startEndDatesAreValid() {
+            var startDate = document.serverForm.start_time; 
+            var validStartDate=/^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30))) (([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])?$/;
+                if (startDate.value.search(validStartDate)==-1) {
+                    alert("Please enter a Start Time in the format of YYYY-MM-DD HH:MM");
+                    return false;
+                } else {
+                }
+            var endDate = document.serverForm.end_time; 
+            var validEndDate=/^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30))) (([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])?$/;
+            if (endDate.value.search(validEndDate)==-1) {
+                alert("Please enter a End Time in the format of YYYY-MM-DD HH:MM");
+                return false;
+            } else {
+            }
+            var sDate = Date.parse(startDate.value.replace(/-/g,"/"));
+            var eDate = Date.parse(endDate.value.replace(/-/g,"/"));
+            if (eDate <= sDate) {
+                alert("End Date/Time must be later than Start Date/Time");
+                return false;
+            } else {
+            }
+            return true;
+        }
+    </script>
+    
+    <script type="text/javascript">
+        function validateMyForm(form) {
+            if (!startEndDatesAreValid()) {
+                return false;
+            }
+            if(document.serverForm.viewList.value == 'myquery') {
+                document.serverForm.search.value ='n';
+            } else {
+                document.serverForm.search.value ='y';
+                if(document.serverForm.viewList.value == 'summary') {
+                    document.serverForm.param.value = '';
+                    document.serverForm.qS.value = '';
+                    document.serverForm.a.value = '';
+                    document.serverForm.b.value = '';
+                    document.serverForm.c.value = '';
+                    document.serverForm.d.value = '';
+                    document.serverForm.e.value = '';
+                    document.serverForm.f.value = '';
+                    document.serverForm.g.value = '';
+                    document.serverForm.h.value = '';
+                    document.serverForm.i.value = '';
+                    document.serverForm.j.value = '';
+                    document.serverForm.z.value = '';
+                    document.serverForm.y.value = '';
+                    document.serverForm.x.value = '';
+                    document.serverForm.v.value = '';
+                }
+            }
+        return true;
+        }
+    </script>
+    
+    
+    <script type="text/javascript" language="JavaScript">
+    function showQuery() {
+        if (!startEndDatesAreValid()) {
+            return false;
+        }
+        var start_time = document.serverForm.start_time.value;
+        var end_time = document.serverForm.end_time.value;
+        var a =  document.serverForm.a.value;
+        var b =  document.serverForm.b.value;
+        var c =  document.serverForm.c.value;
+        var d =  document.serverForm.d.value;
+        var e =  document.serverForm.e.value;
+        var f =  document.serverForm.f.value;
+        var g =  document.serverForm.g.value;
+        var h =  document.serverForm.h.value;
+       var i =  document.serverForm.i.value;
+       var j =  document.serverForm.j.value;
+       var z =  document.serverForm.z.value;
+       var y =  document.serverForm.y.value;
+       var x =  document.serverForm.x.value;
+       var v =  document.serverForm.v.value;
+        var environs = 'QED' ;
+        var site = document.serverForm.site.value;
+        location.href = 'indexQuery.jsp?start_time='+start_time+'&end_time='+end_time+'&site='+site+'&environs='+environs+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&search=N';  
+    }
+    function DynamicFormAction()
+    {
+    if(document.serverForm.a.value != '' && document.serverForm.search.value != 'y'){
+        } else {
+    if(document.serverForm.viewList.value == 'user') {
+        document.serverForm.action = 'initialResults.do?view=start_time='+start_time+'&end_time='+end_time+'&site='+site+'&environs='+environs;
+    }
+    if(document.serverForm.viewList.value == 'session') {
+        document.serverForm.action = 'initialResults.do?start_time='+start_time+'&end_time='+end_time+'&site='+site+'&environs='+environs;
+    }
+    if(document.serverForm.viewList.value == 'transaction') {
+        document.serverForm.action = 'initialResults.do?start_time='+start_time+'&end_time='+end_time+'&site='+site+'&environs='+environs;
+    }
+    if(document.serverForm.viewList.value == 'myquery') {
+        var start_time = document.serverForm.start_time.value;
+        var end_time = document.serverForm.end_time.value;
+        var a =  document.serverForm.a.value;
+        var b =  document.serverForm.b.value;
+        var c =  document.serverForm.c.value;
+        var d =  document.serverForm.d.value;
+        var e =  document.serverForm.e.value;
+        var f =  document.serverForm.f.value;
+        var g =  document.serverForm.g.value;
+        var h =  document.serverForm.h.value;
+       var i =  document.serverForm.i.value;
+       var j =  document.serverForm.j.value;   
+       var z =  document.serverForm.z.value;
+       var y =  document.serverForm.y.value;
+       var x =  document.serverForm.x.value;
+       var v =  document.serverForm.v.value;
+        var environs = 'QED' ;
+        var site = document.serverForm.site.value;
+        document.serverForm.action = 'indexQuery.jsp?start_time='+start_time+'&end_time='+end_time+'&site='+site+'&environs='+environs+'&a='+a+'&b='+b+'&c='+c+'&d='+d+'&e='+e+'&f='+f+'&g='+g+'&h='+h+'&i='+i+'&j='+j+'&z='+z+'&y='+y+'&x='+x+'&v='+v+'&search=N'; 
+    }
+        }
+    return true;
+    }
+    // -->
+    </script>
+    <div class="borderedBoxBlue" >
+    <form method="get" action="initialResults.do" name="serverForm" onsubmit="return validateMyForm(this);" >  
+       <input type="hidden" name="search" value="">
+       <input type="hidden" name="param" >
+       <input type="hidden" name="qS" >
+       <input type="hidden" name="a" >
+       <input type="hidden" name="b" >
+       <input type="hidden" name="c" >
+       <input type="hidden" name="d" >
+       <input type="hidden" name="e" >
+       <input type="hidden" name="f" >
+       <input type="hidden" name="g" >
+       <input type="hidden" name="h" >
+       <input type="hidden" name="i" >
+       <input type="hidden" name="j" >
+       <input type="hidden" name="x" >
+       <input type="hidden" name="y" >
+       <input type="hidden" name="z" >
+       <input type="hidden" name="v" >
+       <input type="hidden" name="environs" value="QED">
+    
+        <table align="center">
+            <tr>
+                <td class="menuCol1">
+                    <table>
+                        <tr>
+                            <td>
+                                <label class="formLabel">View:</label>
+                            </td>
+                            <td>
+                                <select size="1" onchange="getSecondarySelect();" id="viewList" name="view">
+                                    <option value="summary" SELECTED>Summary</option>
+                                    <option value="myquery" >My Query</option>
+                                    <option value="detail" >Details</option>
+                                    <option value="user" >User Guid</option>
+                                    <option value="session" >Session ID</option>
+                                    <option value="page" >Page Guid</option>
+                                    <option value="transaction" >Transaction Guid</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="formLabel">Site:</label>
+                            </td>
+                            <td>						
+                            <select size="1" id="siteList" name="site">
+                            
+                            
+                            <option value="all" SELECTED>All</option>	
+                                
+                                   
+                                                             
+                                  <option value="A" >A </option>						     	     					    						     
+                                
+                                
+                                   
+                                                             
+                                  <option value="B" >B </option>						     	     					    						     
+                                
+                                
+                               
+                               </select>
+                                                             
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="menuCol2">
+                    <table>
+                        <tr>
+                            <td>
+                                <span id="theSecondListDiv">
+                                    
+                                        
+                                            
+                                                                   
+                                                    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+        
+            <select size="1" id="summaryType" name="summaryType">
+                <option value="key" SELECTED>Key</option>
+                <option value="ig" >By IG</option>
+                <option value="api" >API</option>
+                <option value="dep" >Deprecated</option>
+                <option value="xdep" >Exclude Deprecated</option>			
+            </select>
+        
+    
+    
+    
+    
+                                                
+                                                
+                                                
+                                                   
+                                                                        
+                                            
+                                        
+                                    
+                                </span>
+                                <!-- Add IG when Site is defined -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="menuCol3">
+                    <div class="timeEntryWrapperDiv" id="timeRow">
+                        <table>
+                            <tr>
+                                <td nowrap="nowrap"><label class="formLabel">Start Date/Time:</label></td>
+                                <td><input type="Text" id="startBox" maxlength="16" size="16" name="start_time" value="2018-03-06 0:00"></td>
+                                <td><a href="javascript:NewCal('startBox','yyyymmdd',true,24,'dropdown',true)">&nbsp;<img src="images/datePicker/cal.gif" width="16" height="16" border="0" alt="Pick a date/time"></a></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="nowrap"><label class="formLabel">End Date/Time:</label></td>
+                                <td><input type="Text" id="endBox" maxlength="16" size="16" name="end_time" value="2018-03-06 23:59"></td>
+                                <td><a href="javascript:NewCal('endBox','yyyymmdd',true,24,'dropdown',true)">&nbsp;<img src="images/datePicker/cal.gif" width="16" height="16" border="0" alt="Pick a date/time"></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="subButtonRow">
+                        <input type="submit" name="submitForm" value="Submit" class="formButton" onClick="return DynamicFormAction();" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    
+    </form>
+    </div>
+    
+    <div id="menuBar">
+    <ul  class="menuBar"> 
+      
+          <li><a href="#" id="menuNameSpace">Name Space</a>
+          <div class="menuDrop" id ="menuNameSpaceDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoaderz">
+          </div>
+          </li>
+         
+          <li><a href="#" id="menuBusinessUnit">Business Unit</a>
+          <div class="menuDrop" id ="menuBusinessUnitDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoadery">
+          </div>
+          </li>
+       
+       <li><a href="#" id="menuProduct">Product</a>
+          <div class="menuDrop" id ="menuProductDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoaderx">
+          </div>
+       </li> 
+       
+       <li><a href="#" id="menuProductView">Product View</a>
+          <div class="menuDrop" id ="menuProductViewDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoaderx">
+          </div>
+       </li> 
+            
+            <li><a href="#" id="menuCategory">Category</a>
+            <div class="menuDrop" id ="menuCategoryDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader1">
+            </div>
+            </li>
+            
+            <li><a href="#" id="menuSubCategory">Sub Category</a>
+            <div class="menuDropMed" id ="menuSubCategoryDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader2">
+            </div>
+            </li>
+       
+       <li><a href="#" id="menuInstanceGroup">Instance Group</a>
+          <div class="menuDrop" id ="menuInstanceGroupDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoader3">
+          </div>
+       </li>
+       
+       <li><a href="#" id="menuMachine">Machine</a>
+          <div class="menuDropMed" id ="menuMachineDrop" style="display:none;">
+          <img src="images/ajax-loader.gif" id="ajaxLoader4">
+          </div>
+       </li>
+        
+         <li><a href="#" id="menuAppName">App Name</a>
+            <div class="menuDrop" id ="menuAppNameDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader5">
+            </div>
+        </li>
+        
+         <li><a href="#" id="menuInstanceName">Instance</a>
+            <div class="menuDropMed" id ="menuInstanceNameDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader6">
+            </div>
+        </li>
+        
+         <li><a href="#" id="menuAppBuilderNumber">Build Number</a>
+            <div class="menuDrop" id ="menuAppBuilderNumberDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader7">
+            </div>
+        </li>
+        
+         <li><a href="#" id="menuKey">Key</a>
+            <div class="menuDropBig" id ="menuKeyDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader8">
+            </div>
+        </li>  
+        
+         <li><a href="#" id="menuIsCustomerFacing">Customer Facing</a>
+            <div class="menuDrop" id ="menuIsCustomerFacingDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader9">
+            </div>
+        </li> 
+        
+         <li><a href="#" id="menuApi">API</a>
+            <div class="menuDropBig" id ="menuApiDrop" style="display:none;">
+            <img src="images/ajax-loader.gif" id="ajaxLoader10">
+            </div>
+        </li>  
+         
+    </ul>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    
+       
+    <div class="borderedBoxPaleYellow">
+    
+    
+    
+     <span class="bodytextCobaltBlue">View:</span>
+     <span class="bodytextInfoBox">summary</span>
+     <span class="navBarRed">&nbsp;<strong>&#62;&#62;&#62;</strong>&nbsp;</span>
+    
+     <span class="bodytextCobaltBlue">Site:</span>
+     <span class="bodytextInfoBox">all</span>
+     <span class="navBarRed">&nbsp;<strong>&#62;&#62;&#62;</strong>&nbsp;</span>
+    
+     <span class="bodytextCobaltBlue">Start Time:</span>
+     <span class="bodytextInfoBox">2018-03-06 0:00</span>
+     <span class="navBarRed">&nbsp;<strong>&#62;&#62;&#62;</strong>&nbsp;</span>
+    
+     <span class="bodytextCobaltBlue">End Time:</span>
+     <span class="bodytextInfoBox">2018-03-06 23:59</span>
+     <span class="navBarRed">&nbsp;<strong>&#62;&#62;&#62;</strong>&nbsp;</span>
+    
+    
+       
+       
+    
+    </div>     
+      
+    
+          
+             
+    
+    
+    
+             <div class="borderedBoxWhite">
+                <table width="100%" cellspacing="1" cellpadding="0" border="0" class="tablesorter" >
+                   <thead>
+                   <tr>
+                      <th width="14" class="{sorter: false}">&nbsp;</th>
+                      <th>&nbsp;Application&nbsp;</th>    
+                          
+                       
+                      <th>&nbsp;Key Name&nbsp;</th>
+                               
+                      
+                      
+                               
+                               
+                      <th class="{sorter: 'digit'}">&nbsp;Occurrences&nbsp;</th>
+                    </tr>
+                    </thead>
+                   
+                   <tr><td></td>
+                    
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Foldering&instanceGrp=">Document</a></td>
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=&instanceGrp=&keyName=Cobalt.Foldering.Icon.GetIconsForUser">document_error_key_1</a></td>             
+                    <td>&nbsp;<a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Foldering&instanceGrp=&keyName=Cobalt.Foldering.Icon.GetIconsForUser">1</a></td>
+                                  
+                                  </tr>             
+                   
+                   <tr><td></td>
+                    
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=UDS&instanceGrp=">Search</a></td>
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=&instanceGrp=&keyName=NoValidReportingNameSingle">search_error_key</a></td>             
+                    <td>&nbsp;<a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=UDS&instanceGrp=&keyName=NoValidReportingNameSingle">2</a></td>
+                                  
+                                  </tr>             
+                   
+                   <tr><td></td>
+                    
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Website&instanceGrp=">Website</a></td>
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=&instanceGrp=&keyName=Cobalt.Website.Platform.ModuleServices.Server.WebRequestHelper.SendRequest">website_error_key_1</a></td>             
+                    <td>&nbsp;<a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Website&instanceGrp=&keyName=Cobalt.Website.Platform.ModuleServices.Server.WebRequestHelper.SendRequest">3</a></td>
+                                  
+                                  </tr>             
+                   
+                   <tr><td></td>
+                    
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Document&instanceGrp=">Document</a></td>
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=&instanceGrp=&keyName=Cobalt.Document.WLN.Controllers.WLNSelectionController.RelocateHighlights">document_error_key_2</a></td>             
+                    <td>&nbsp;<a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Document&instanceGrp=&keyName=Cobalt.Document.WLN.Controllers.WLNSelectionController.RelocateHighlights">2</a></td>
+                                  
+                                  </tr>             
+                   
+                   <tr><td></td>
+                    
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Website&instanceGrp=">Website</a></td>
+                    <td><a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=&instanceGrp=&keyName=Cobalt.Website.ReadPracticeAreaList">website_error_key_2</a></td>             
+                    <td>&nbsp;<a href="specificParam.do?view=summary&environs=QED&site=all&start_time=2018-03-06 0:00&end_time=2018-03-06 23:59&appName=Website&instanceGrp=&keyName=Cobalt.Website.ReadPracticeAreaList">5</a></td>
+                                  
+                                  </tr>             
+                   
+                </table>
+             </div>
+             
+    
+    
+       
+       
+                        
+        
+        
+            
+        
+    <div class=footerBox>Copyright &#169;2018 Thomson Reuters&nbsp;|&nbsp;Version: Next</div>
+    </body>
+    </html>
