@@ -68,5 +68,5 @@ setup(
         'pyquery',
         'requests'
     ] + extra_dependencies(),
-    test_require = ['coverage']
+    test_require = ['coverage', 'codecov']
 )
