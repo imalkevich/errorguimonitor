@@ -68,4 +68,5 @@ setup(
         'pyquery',
         'requests'
     ] + extra_dependencies(),
+    test_require = ['coverage']
 )

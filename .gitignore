@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Secrets
-errorguimonitor/secret.py
+# 
+.coverage
+coverage.xml
 errorguimonitor/history_data
