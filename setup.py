@@ -45,7 +45,10 @@ setup(
         "Development Status :: 1 - Development",
         "Environment :: Console",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
         "Topic :: Documentation",
     ],
     keywords='errorguimonitor help track errors',
@@ -62,11 +65,9 @@ setup(
         ]
     },
     install_requires=[
-        'PrettyTable',
         'numpy',
+        'PTable',
         'pyquery',
-        #'pygments',
-        'requests',
-        #'requests-cache'
+        'requests'
     ] + extra_dependencies(),
 )
