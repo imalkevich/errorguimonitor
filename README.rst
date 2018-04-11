@@ -11,7 +11,7 @@ command line utility to send notifications about new/increased errors from Error
     :target: https://codecov.io/github/imalkevich/errorguimonitor
     :alt: codecov.io
 
-Are you watching for module and would like to understand whether new code being added is
+Are you watching for module and would like to understand whether new code being added is 
 not causing new issues - run this tool on a regular basis to be able to see the trends in errors.
 
 Installation
