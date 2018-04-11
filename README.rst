@@ -7,6 +7,10 @@ command line utility to send notifications about new/increased errors from Error
 .. image:: https://secure.travis-ci.org/imalkevich/errorguimonitor.png?branch=master
         :target: https://travis-ci.org/imalkevich/errorguimonitor
 
+.. image:: https://codecov.io/github/imalkevich/errorguimonitor/coverage.svg?branch=master
+    :target: https://codecov.io/github/imalkevich/errorguimonitor
+    :alt: codecov.io
+
 Are you watching for module and would like to understand whether new code being added is
 not causing new issues - run this tool on a regular basis to be able to see the trends in errors.
 
@@ -50,4 +54,4 @@ Usage
 Author
 ------
 
--  Ihar Malkevich(`imalkevich@gmail.com`_)
+-  Ihar Malkevich (imalkevich@gmail.com)
