@@ -14,7 +14,6 @@ from prettytable import PrettyTable
 
 from . import __version__
 from .report_builder import ErrorReportBuilder
-from .secret import SAFE_ID, SMTP
 
 WORKING_DAYS_CURRENT_COUNT = 1
 WORKING_DAYS_PRIOR_COUNT = 5
@@ -25,14 +24,18 @@ class ErrorCompareReporter(object):
     """
     Error compare reporter - compares periods and reports new errors or error rates increase.
     """
-    def __init__(self, env, date):
+    def __init__(self, env, date, safeid_user, safeid_password, smtp_user, smtp_password):
         self.env = env
         self.today = date
+        self.safeid_user = safeid_user
+        self.safeid_password = safeid_password
+        self.smtp_user = smtp_user
+        self.smtp_password = smtp_password
 
     def run(self):
         target_dates, history_dates = self._get_report_dates(WORKING_DAYS_CURRENT_COUNT, WORKING_DAYS_PRIOR_COUNT)
         
-        report_builder = ErrorReportBuilder(self.env, SAFE_ID['user'], SAFE_ID['password'])
+        report_builder = ErrorReportBuilder(self.env, self.safeid_user, self.safeid_password)
 
         target_report = self._get_report(report_builder, target_dates)
         history_report = self._get_report(report_builder, history_dates)
@@ -41,7 +44,7 @@ class ErrorCompareReporter(object):
 
         (subject, body) = self._create_notification(target_dates, history_dates, new_errors, errors_increased)
 
-        self._send_notification(subject, body, SMTP['user'], SMTP['password'], RECIPIENTS)
+        self._send_notification(subject, body, self.smtp_user, self.smtp_password, RECIPIENTS)
 
     def _check_error_rate_increase(self, target_errors, history_errors):
         target_median_scores = map(np.median, self._get_bootstrap_samples(np.array(target_errors), 100))
@@ -202,6 +205,10 @@ def get_parser():
 
     parser.add_argument('-e', '--environment', help='the environment (QED only at the moment)', type=str)
     parser.add_argument('-d', '--date', help='the target date (year-month-day)', type=str)
+    parser.add_argument('-u', '--user', help='SAFE ID user', type=str)
+    parser.add_argument('-p', '--password', help='SAFE ID password', type=str)
+    parser.add_argument('-smtp_user', '--smtp_user', help='Gmail account username', type=str)
+    parser.add_argument('-smtp_password', '--smtp_password', help='Gmail account password', type=str)
 
     parser.add_argument('-v', '--version', help='displays the current version of errorguimonitor',
                         action='store_true')
@@ -227,8 +234,21 @@ def command_line_runner():
     except ValueError:
         print('incorrect date provided. Please use year-month-day format')
         return
+
+    safe_id_user = args['user']
+    safe_id_password = args['password']
+    smtp_user = args['smtp_user']
+    smtp_password = args['smtp_password']
+
+    if not safe_id_user \
+        or not safe_id_password \
+        or not smtp_user \
+        or not smtp_password:
+        print('Please provide usernames and passwords to successfully run the utility.')
+        parser.print_help()
+        return
     
-    reporter = ErrorCompareReporter(env, target_date)
+    reporter = ErrorCompareReporter(env, target_date, safe_id_user, safe_id_password, smtp_user, smtp_password)
     reporter.run()
 
 if __name__ == '__main__':

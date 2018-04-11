@@ -25,7 +25,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
         """ test today is Saturday, 6 days back """
         # arrange
         today = datetime(2018, 4, 7) + timedelta(hours=15)
-        qed1week = reporter.ErrorCompareReporter('env', today)
+        qed1week = reporter.ErrorCompareReporter('env', today, 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
         
         # act
         target_dates, history_dates = qed1week._get_report_dates(1, 5)
@@ -45,7 +45,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
         """ test today is Tuesday, 6 days back """
         # arrange
         today = datetime(2018, 4, 10) + timedelta(hours=8)
-        qed1week = reporter.ErrorCompareReporter('env', today)
+        qed1week = reporter.ErrorCompareReporter('env', today, 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
         
         # act
         target_dates, history_dates = qed1week._get_report_dates(1, 5)
@@ -75,7 +75,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
         mock_report_builder = report_builder.ErrorReportBuilder('env', 'user', 'password')
         mock_report_builder.build_report = mock.MagicMock(side_effect=side_effect)
 
-        qed1week = reporter.ErrorCompareReporter('env', datetime.today())
+        qed1week = reporter.ErrorCompareReporter('env', datetime.today(), 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
         dates = [
             (datetime(2018, 4, 5), datetime(2018, 4, 5, 23, 59, 59)),
             (datetime(2018, 4, 4), datetime(2018, 4, 4, 23, 59, 59))
@@ -89,7 +89,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
 
     def test_check_error_rate_increase(self):
         # arrange
-        qed1week = reporter.ErrorCompareReporter('env', datetime.today())
+        qed1week = reporter.ErrorCompareReporter('env', datetime.today(), 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
         target_errors = [10]
         history_errors = [5]
 
@@ -101,7 +101,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
 
     def test_prepare_report(self):
         # arrange
-        qed1week = reporter.ErrorCompareReporter('env', datetime.today())
+        qed1week = reporter.ErrorCompareReporter('env', datetime.today(), 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
         target_report = { 
             'Document': { 'doc_key': [1] },
             'Website': { 'error_key_1': [1], 'error_key_2': [2], 'error_key_3': [3] }
@@ -133,7 +133,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
 
     def test_create_notification(self):
         # arrange
-        qed1week = reporter.ErrorCompareReporter('env', datetime.today())
+        qed1week = reporter.ErrorCompareReporter('env', datetime.today(), 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
 
         target_dates = [
             (datetime(2018, 4, 9), datetime(2018, 4, 9, 23, 59, 59))
@@ -157,7 +157,7 @@ class ErrorCompareReporterTestCase(unittest.TestCase):
     @mock.patch('errorguimonitor.reporter.smtplib')
     def test_send_notification(self, mock_smtplib):
         # arrange
-        qed1week = reporter.ErrorCompareReporter('env', datetime.today())
+        qed1week = reporter.ErrorCompareReporter('env', datetime.today(), 'safeid_user', 'safeid_password', 'smtp_user', 'smtp_password')
 
         mock_server = mock.MagicMock()
         dummySMTP = mock.MagicMock(return_value=mock_server)
